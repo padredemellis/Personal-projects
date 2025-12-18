@@ -9,16 +9,19 @@ print(f"Hello {name}")
 2) Hacer un programa que solicite por teclado dos números y muestre la suma , la resta ,la 
 multiplicación y la división de esos números 
 '''
-def matematicas (num1: int, num2: int) -> int:
+def matematicas (num1: int, num2: int):
     suma = num1 + num2
     resta = num1 - num2
     multiplicacion = num1 * num2
     division = num1 / num2
 
-    print(f"""La suma de tus numeros es: {suma}\n
-        la resta es {resta}\n 
-        la multiplicacion es: {multiplicacion}\n
-        la division es {division}""")
+    if num2 == 0:
+        raise ZeroDivisionError("No se puede dividir por cero")
+    else:
+        print(f"""La suma de tus numeros es: {suma}\n
+            la resta es {resta}\n 
+            la multiplicacion es: {multiplicacion}\n
+            la division es {division}""")
 
 num1 = int(input("Ingresa un numero:\t"))
 num2 = int(input("Ingresa un numero:\t"))
@@ -43,7 +46,7 @@ else:
 color ingresado es verde , “Precaución “ si es amarillo , “No pasar “ si es rojo o “Color 
 inválido” si es cualquier otro. 
 '''
-def semaforo(color:str)->str:
+def semaforo(color:str):
     if color.lower() == "verde":
         print(f"{color} - Puede pasar")
     elif color.lower() == "amarillo":
@@ -106,3 +109,27 @@ for n in range(5):
         print("*" * 10)
     else:
         print("*           *")
+
+print("\n")
+'''
+12)Hacer un programa que muestre el siguiente dibujo 
+         * 
+         *    * 
+         *    *    * 
+         *    *    *     * 
+         *    *    *     *     * 
+'''
+for fila in range(1, 6):
+    print("*" * fila)
+
+print("\n")
+'''
+13) Idem  anterior con este dibujo 
+         *    *     *     *     * 
+         *    *     *     *     
+         *    *     * 
+         *    * 
+         *
+'''
+for fila in range(5, 0, -1):
+    print("*" * fila)
