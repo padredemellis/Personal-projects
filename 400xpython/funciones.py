@@ -65,10 +65,11 @@ Por ejemplo, “Hola, tú” devolverá “H o l a , t ú “. Crea un programa 
 dicha función. 
 '''
 def ConvertirEspaciado(texto:str)->str:
-    
+    return "".join([f"{t} " for t in texto])
 
+frase:str = input("dí algo:\t")
+print(ConvertirEspaciado(frase))
 '''
-
 18)Crea una función “calcularMaxMin” que recibe una lista con valores numéricos y devuelve 
 el valor máximo y el mínimo.  
 Crea un programa que pida números por teclado y muestre el máximo y el mínimo, 
