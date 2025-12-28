@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template
+from . import models
 '''
 **¿Qué contiene?** Toda la lógica de **autenticación de usuarios**.
 
@@ -17,6 +18,6 @@ bp = Blueprint('auth', __name__, url_prefix='/auth')
 def register():
     return render_template('auth/register.html')
 
-@bp.route('/login')
+@bp.route('/login', methods=['GET', 'POST'])
 def login():
     return render_template('auth/login.html')
