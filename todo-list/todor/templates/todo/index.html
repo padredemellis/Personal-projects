@@ -1,8 +1,41 @@
 {% extends 'base.html' %}
   
-
 {% block content %}
 
-    <h1> {% block title %} Lista de tareas {% endblock %}</h1>
+    <section class="container-fluid">
+        <nav class="navbar">
+            <h1> {% block title %} Lista de tareas {% endblock %}</h1>
+            <a href="" class="btn btn-success">Nuevo</a>
+        </nav>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="col">Tareas</th>
+                    <th class="col">Estado</th>
+                    <th class="col" colspan="2">Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for todo in todos  | reverse %}
+                {% if g.user.id == todo.created_by %}
+                <tr>
+                    <td>
+                        <h5> {{todo.title}} </h5>
+                        <p> {{todo.description }}</p>
+                    </td>
+                    <td>{{todo.state}}</td>
+                    <td>
+                        <a href="" class="btn btn-info btn-sm">Editar</a>
+                    </td>
+                    <td>
+                        <a href="" class="btn btn-danger btn-sm">Eliminar</a>
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
 
 {% endblock %}
