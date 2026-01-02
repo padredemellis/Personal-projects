@@ -24,12 +24,18 @@
                         <h5> {{todo.title}} </h5>
                         <p> {{todo.description }}</p>
                     </td>
-                    <td>{{todo.state}}</td>
                     <td>
-                        <a href="" class="btn btn-info btn-sm">Editar</a>
+                        {% if todo.state == false %}
+                        <span class="text-warning">Incompleto</span>
+                        {% else %}
+                        <span class="text-succes">Completado</span>
+                        {% endif %}
                     </td>
                     <td>
-                        <a href="" class="btn btn-danger btn-sm">Eliminar</a>
+                        <a href="{{url_for('todo.update', id = todo.id)}}" class="btn btn-info btn-sm">Editar</a>
+                    </td>
+                    <td>
+                        <a href="{{url_for('todo.delete', id = todo.id)}}" class="btn btn-danger btn-sm">Eliminar</a>
                     </td>
                 </tr>
                 {% endif %}
