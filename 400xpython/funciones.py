@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 '''
 Funciones  
 14)Crea un función EscribirCentrado, que reciba como parámetro un texto y lo escriba 
@@ -65,7 +66,7 @@ Por ejemplo, “Hola, tú” devolverá “H o l a , t ú “. Crea un programa 
 dicha función. 
 '''
 def ConvertirEspaciado(texto:str)->str:
-    return "".join([f"{t} " for t in texto])
+    return " ".join([f"{t}" for t in texto])
 
 frase:str = input("dí algo:\t")
 print(ConvertirEspaciado(frase))
@@ -74,6 +75,27 @@ print(ConvertirEspaciado(frase))
 el valor máximo y el mínimo.  
 Crea un programa que pida números por teclado y muestre el máximo y el mínimo, 
 utilizando la función anterior. 
+'''
+def calcularMaxMin(valores: list) -> tuple[int, int]:
+    maximo: int = max(valores)
+    minimo: int = min(valores)
+    return (maximo, minimo)
+
+def principal() -> tuple:
+    lista: list = []
+    numeros: int = 0
+    while numeros >= 0:
+        numeros = int(input("ingrese un numero, presione -1 para salir\t"))
+        if numeros != -1:
+            lista.append(numeros)
+    resultado = calcularMaxMin(lista)
+    return resultado
+
+print(principal())
+
+
+'''
+
 19)Diseñar una función que calcule el área y el perímetro de una circunferencia. Utiliza dicha 
 función en un programa principal que lea el radio de  
 una circunferencia y muestre su área y perímetro. 
