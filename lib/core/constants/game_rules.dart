@@ -1,3 +1,4 @@
+import 'package:lost_library/core/enums/dificulty.dart';
 //Rules of the game
 
 /// Calcula cuántas respuestas correctas se necesitan para pasar un nodo.
@@ -33,11 +34,30 @@ int getTotalQuestions(int nodeId){
   if (nodeId < 1 || nodeId > 30 ){
     throw ArgumentError('Node ID must be between 1 and 30, got $nodeId');
   }
-  if (nodeId >= 1 && nodeId <= 10) {
-    return 3;
-  } else if (nodeId >= 11 && nodeId <= 20) {
+  if ((nodeId >= 1 && nodeId <= 10) || (nodeId >= 11 && nodeId <= 20)) {
     return 3;
   } else {
     return 5;
+  }
+}
+
+// Sirve para obtener la dificultad de un nodo
+///
+/// Reglas:
+/// - Nodos 1-10 (Fácil): 1 de 3 preguntas
+/// - Nodos 11-20 (Medio): 2 de 3 preguntas
+/// - Nodos 21-30 (Difícil): 3 de 5 preguntas
+///
+/// Lanza [ArgumentError] si [nodeId] no está entre 1 y 30.
+Difficulty getDifficulty(int nodeId){
+  if (nodeId < 1 || nodeId > 30 ){
+    throw ArgumentError('Node ID must be between 1 and 30, got $nodeId');
+  }
+  if (nodeId >= 1 && nodeId <= 10) {
+    return Difficulty.easy;
+  } else if (nodeId >= 11 && nodeId <= 20) {
+    return Difficulty.medium;
+  } else {
+    return Difficulty.hard;
   }
 }
